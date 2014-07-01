@@ -10,6 +10,7 @@ $(document).ready(function(){
 	// Ensure only numbers are entered.
 	$("#number").keypress(function(event){
 		validateNumericKeyInput(event);
+		enter("#number", event);
 	});
 
 	// Respond to 'Check' button being pressed.
@@ -71,4 +72,15 @@ function validateNumericKeyInput(event) {
 	// Limit to just numeric digits.
 	if ("0123456789".indexOf(ch) === -1)
 		e.preventDefault(e);
+}
+
+
+/**
+ * Enable conversion occurring by pressing enter on input field with specified id.
+ */
+function enter(id, event) {
+	if (event.which === 13) {
+		$(id).change();
+		$("#check").click();
+	}
 }
