@@ -9,7 +9,13 @@
 		
 		<title>Primality Checker</title>
 		
+		<!-- Icon image -->
+		<link rel="icon" href="resources/ico/PrimeIcon.png">
+		
+		<!-- Bootstrap styling -->
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+		
+		<!-- JQuery -->
 	  <script src="resources/js/jquery.js"></script>
 		<script>
 			$(document).ready(function(){
@@ -19,14 +25,14 @@
 	      });
 			
 				$("#check").click(function(){
-				var number = parseInt($("#number").val());
-				var factor = isPrime(number);
-				if (factor == -1) {
-					$("#message").val("Number is prime.");
-				} else {
-					$("#message").val("Number is not prime, it is divisible by " + factor + ".");
-				}	  
-			});	  
+					var number = parseInt($("#number").val());
+					var factor = isPrime(number);
+					if (factor == -1) {
+						$("#message").val("Number is prime.");
+					} else {
+						$("#message").val("Number is not prime, it is divisible by " + factor + ".");
+					}	  
+				});	  
 			});
 			
 			function isPrime(n) {
