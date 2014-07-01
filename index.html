@@ -15,100 +15,12 @@
 		<!-- Bootstrap styling -->
     <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 		
-		<!-- JQuery -->
-	  <script src="resources/js/jquery.js"></script>
-		<script>
-			$(document).ready(function(){
-			
-			  $("#number").keypress(function(event){
-		      validateNumericKeyInput(event);
-	      });
-			
-				$("#check").click(function(){
-					var number = parseInt($("#number").val());
-					var factor = isPrime(number);
-					if (factor == -1) {
-						$("#message").val("Number is prime.");
-					} else {
-						$("#message").val("Number is not prime, it is divisible by " + factor + ".");
-					}	  
-				});	  
-			});
-			
-			function isPrime(n) {
-		
-				var nsqrt = Math.floor(Math.sqrt(n));
-			
-				if (n % 2 == 0)
-					return 2;
-			if (n % 3 == 0)
-				return 3;
-		 
-				for (var i = 5; i < nsqrt; i+=6) {
-					if (n % i  == 0)
-							return i;
-				if (n % (i + 2) == 0)
-						return (i + 2);
-				}
-				return -1;
-			} 
-			
-			/**
-			 * Validate that the key input is a numeral.
-			 */
-			function validateNumericKeyInput(event) {
-				var e = event || window.event; 
-				var charCode = e.charCode || e.keyCode; 
-				var ch = String.fromCharCode(charCode);
-
-				// Allow backspace, delete, tab, ctrl keys.
-				if (event.keyCode === 8 || event.keyCode === 0 || event.keyCode === 127 || event.keyCode === 9 || event.ctrlKey)
-					return;
-
-				// Limit to just numeric digits.
-				if ("0123456789".indexOf(ch) === -1)
-					e.preventDefault(e);
-			}
-		</script>
-	<style>
-	  html {
-	    text-align: center;
-	  }
-      .container {
-        width: 400px;
-        margin-top: 20px;
-	  }
-	  @media (max-width:400px) {
-	    .container {
-		  width:100%;
-		}
-	  }
-	  #message {
-		cursor: default;
-		background-color: white;
-	  }
-	  #title {
-	    font-size: 3rem;		
-		margin-bottom: 5px;
-		color: #666;
-	  }
-	  #description {
-	    margin-bottom: 15px;
-		color: #666;
-	  }
-	  #check {
-	    width:100%;
-		background-color: #39b1a4;
-		color: white;
-	  }
-	  .form-control:focus {
-        border-color: #39b1a4;
-      }
-	</style>
+		<!-- Custom styling -->
+		<link rel="stylesheet" href="resources/css/primality.css">
   </head>
   <body>
-	<div class="container">
-	  <div class="panel panel-default">
+	  <div class="container">
+	    <div class="panel panel-default">
         <div class="panel-body">
           <div id="title">Primality Checker</div>
           <p id="description">Enter a positive integer in the box below and press the 'Check' button to see if it is prime.</p>
@@ -135,5 +47,11 @@
         </div>
       </div>
 	  </div>
+		
+		<!-- JQuery -->
+	  <script src="resources/js/jquery.js"></script>
+		
+		<!-- Custom script -->
+		<script src="resources/js/primality.js"></script>
   </body>
 </html>
