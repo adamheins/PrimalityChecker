@@ -5,7 +5,7 @@
  */
 
 html {
-	text-align: center;
+  text-align: center;
 }
 body {
   background-color: #f6f6f6;
@@ -15,28 +15,28 @@ body {
   background-color: white;
 }
 #title {
-	font-size: 3rem;		
+  font-size: 3rem;		
   margin-bottom: 5px;
   color: #666;
 }
 #description {
-	margin-bottom: 15px;
+  margin-bottom: 15px;
   color: #666;
 }
 #check {
-	width:100%;
+  width:100%;
   background-color: #39b1a4;
   color: white;
 }
 .container {
-		width: 400px;
-		margin-top: 20px;
+  width: 400px;
+  margin-top: 20px;
 }
 @media (max-width:400px) {
-	.container {
-	  width:100%;
+  .container {
+    width:100%;
   }
 }
 .form-control:focus {
-	border-color: #39b1a4;
+  border-color: #39b1a4;
 }
