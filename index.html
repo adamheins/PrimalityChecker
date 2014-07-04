@@ -1,57 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Determines whether or not a number is prime.">
-    <meta name="author" content="Adam Heins">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Determines whether or not a number is prime.">
+        <meta name="author" content="Adam Heins">
 		
-    <title>Primality Checker</title>
+        <title>Primality Checker</title>
 		
-    <!-- Icon image -->
-    <link rel="icon" href="resources/ico/PrimeIcon.png">
+        <!-- Icon image -->
+        <link rel="icon" href="resources/ico/PrimeIcon.png">
 
-    <!-- Bootstrap styling -->
-    <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+        <!-- Bootstrap styling -->
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
 
-    <!-- Custom styling -->
-    <link rel="stylesheet" href="resources/css/primality.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="panel panel-default">
-        <div class="panel-body">
-          <div id="title">Primality Checker</div>
-          <p id="description">Enter a positive integer in the box below and press the 'Check' button to see if it is prime.</p>
-          <form class="form-horizontal" role="form">
+        <!-- Custom styling -->
+        <link rel="stylesheet" href="resources/css/primality.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="title">Primality Checker</div>
+                    <p id="description">Enter a positive integer in the box below and press the 'Check' button
+                                        to see if it is prime.</p>
+                    <form class="form-horizontal" role="form">
 		  
-            <div class="form-group">
-              <label class="sr-only" for="number">Number</label>
-              <div class="col-sm-9 col-xs-8" style="padding-right: 7.5px;">
-                <input class="form-control" id="number" placeholder="Enter a number.">
-              </div>
-              <div class="col-sm-3 col-xs-4" style="padding-left: 7.5px;">
-                <button id="check" type="button" class="btn btn-sexy">Check</button>
-              </div>
-            </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="number">Number</label>
+                            <div class="col-sm-9 col-xs-8" style="padding-right: 7.5px;">
+                                <input class="form-control" id="number" placeholder="Enter a number.">
+                            </div>
+                            <div class="col-sm-3 col-xs-4" style="padding-left: 7.5px;">
+                                <button id="check" type="button" class="btn btn-sexy">Check</button>
+                            </div>
+                        </div>
 				
-            <div class="form-group">
-              <label class="sr-only" for="message">Message</label>
-              <div class="col-xs-12">
-                <input class="form-control" readonly="true" id="message">
-              </div>
-            </div>
+                        <div class="form-group">
+                            <label class="sr-only" for="message">Message</label>
+                            <div class="col-xs-12">
+                                <input class="form-control" readonly="true" id="message">
+                            </div>
+                        </div>
 					
-          </form>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-	  </div>
 		
-    <!-- JQuery -->
-    <script src="resources/js/jquery.js"></script>
+        <!-- JQuery -->
+        <script src="resources/js/jquery.js"></script>
 		
-    <!-- Custom script -->
-    <script src="resources/js/primality.js"></script>
-  </body>
+        <!-- Custom script -->
+        <script src="resources/js/primality.js"></script>
+    </body>
 </html>
