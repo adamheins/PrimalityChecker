@@ -1,42 +1,50 @@
 /**
  * Primality Checker custom CSS.
  * Adam Heins
- * 2014-07-03
+ * 2014-07-06
  */
 
 html {
     text-align: center;
 }
+
 body {
     background-color: #f6f6f6;
 }
+
 #message {
     cursor: default;
     background-color: white;
 }
+
 #title {
     font-size: 3rem;		
     margin-bottom: 5px;
     color: #666;
 }
+
 #description {
     margin-bottom: 15px;
     color: #666;
 }
+
 #check {
     width:100%;
     background-color: #39b1a4;
     color: white;
 }
+
 .container {
     width: 400px;
     margin-top: 20px;
 }
+
 @media (max-width:400px) {
     .container {
         width:100%;
     }
 }
+
 .form-control:focus {
     border-color: #39b1a4;
 }
