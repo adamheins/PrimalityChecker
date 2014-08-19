@@ -1,50 +1,63 @@
 /**
- * Primality Checker custom CSS.
- * Adam Heins
- * 2014-07-06
+ * Style sheet for Primality Checker.
+ *
+ * @author Adam Heins
  */
 
 html {
-    text-align: center;
+  text-align: center;
 }
 
 body {
-    background-color: #f6f6f6;
+  background-color: #f6f6f6;
+}
+
+.panel {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+#button-wrapper {
+  padding-left: 7.5px;
+}
+
+#message-wrapper {
+  padding-right: 7.5px;
 }
 
 #message {
-    cursor: default;
-    background-color: white;
+  cursor: default;
+  background-color: white;
 }
 
 #title {
-    font-size: 3rem;		
-    margin-bottom: 5px;
-    color: #666;
+  font-size: 3rem;
+  margin-bottom: 5px;
+  color: #666;
 }
 
 #description {
-    margin-bottom: 15px;
-    color: #666;
+  margin-bottom: 15px;
+  color: #666;
 }
 
 #check {
-    width:100%;
-    background-color: #39b1a4;
-    color: white;
+  width: 100%;
+  background-color: #39b1a4;
+  color: white;
 }
 
 .container {
-    width: 400px;
-    margin-top: 20px;
+  /*width: 400px; */
+  margin-top: 20px;
 }
 
 @media (max-width:400px) {
-    .container {
-        width:100%;
-    }
+  .container {
+    width: 100%;
+  }
 }
 
 .form-control:focus {
-    border-color: #39b1a4;
+  border-color: #39b1a4;
 }

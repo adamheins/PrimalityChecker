@@ -1,16 +1,24 @@
 /**
  * Primality Checker script
- * Adam Heins
- * 2014-07-03
+ *
+ * @author Adam Heins
  */
- 
 
-$(document).ready(function(){
+
+$(document).ready(function() {
+
+    // Testing if biginteger.js is properly loaded.
+    var testbigint = new BigInteger('1234567890');
+    alert(testbigint);
 
     // Ensure only numbers are entered.
     $("#number").keypress(function(event){
         validateNumericKeyInput(event);
         enter("#number", event);
+    });
+
+    $("#number").mouseup(function(event){
+        $(".panel").resize();
     });
 
     // Respond to 'Check' button being pressed.
@@ -23,8 +31,8 @@ $(document).ready(function(){
         if (factor == -1)
             $("#message").val("Number is prime.");
         else
-            $("#message").val("Number is not prime, it is divisible by " + factor + ".");  
-    });	  
+            $("#message").val("Number is not prime, it is divisible by " + factor + ".");
+    });
 });
 
 
@@ -40,7 +48,7 @@ function isPrime(n) {
         return 2;
     if (n % 3 == 0)
         return 3;
-		
+
     var nsqrt = Math.floor(Math.sqrt(n));
 
     // Check for factors up to the square root of the number.
@@ -53,15 +61,15 @@ function isPrime(n) {
             return (i + 2);
     }
     return -1;
-} 
+}
 
 
 /**
  * Validate that the key input is a numeral.
  */
 function validateNumericKeyInput(event) {
-    var e = event || window.event; 
-    var charCode = e.charCode || e.keyCode; 
+    var e = event || window.event;
+    var charCode = e.charCode || e.keyCode;
     var ch = String.fromCharCode(charCode);
 
     // Allow backspace, delete, tab, ctrl keys.

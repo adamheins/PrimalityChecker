@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Determines whether or not a number is prime.">
-        <meta name="author" content="Adam Heins">
-		
-        <title>Primality Checker</title>
-		
-        <!-- Icon image -->
-        <link rel="icon" href="resources/ico/PrimeIcon.png">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Determines the primality of arbitrarily-sized integers.">
+    <meta name="author" content="Adam Heins">
 
-        <!-- Bootstrap styling -->
-        <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+    <title>Primality Checker</title>
 
-        <!-- Custom styling -->
-        <link rel="stylesheet" href="resources/css/primality.css">
-    </head>
-    <body>
-        <div class="container">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div id="title">Primality Checker</div>
-                    <p id="description">Enter a positive integer in the box below and press the 'Check' button
-                                        to see if it is prime.</p>
-                    <form class="form-horizontal" role="form">
-		  
-                        <div class="form-group">
-                            <label class="sr-only" for="number">Number</label>
-                            <div class="col-sm-9 col-xs-8" style="padding-right: 7.5px;">
-                                <input class="form-control" id="number" placeholder="Enter a number.">
-                            </div>
-                            <div class="col-sm-3 col-xs-4" style="padding-left: 7.5px;">
-                                <button id="check" type="button" class="btn btn-sexy">Check</button>
-                            </div>
-                        </div>
-				
-                        <div class="form-group">
-                            <label class="sr-only" for="message">Message</label>
-                            <div class="col-xs-12">
-                                <input class="form-control" readonly="true" id="message">
-                            </div>
-                        </div>
-					
-                    </form>
-                </div>
+    <!-- Icon image -->
+    <link rel="icon" href="resources/ico/PrimeIcon.png">
+
+    <!-- Bootstrap styling -->
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css"> <!-- TODO remote -->
+
+    <!-- Custom styling -->
+    <link rel="stylesheet" href="resources/css/primality.css">
+  </head>
+  <body>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div id="title">Primality Checker</div>
+        <p id="description">Enter a positive integer in the box below and press<br>the 'Check'
+            button to see if it is prime.</p>
+        <form class="form-horizontal" role="form">
+
+          <div class="form-group">
+            <label class="sr-only" for="number">Number</label>
+            <div class="col-xs-12">
+              <textarea class="form-control" id="number" placeholder="Enter a number." rows="1"></textarea>
             </div>
-        </div>
-		
-        <!-- JQuery -->
-        <script src="resources/js/jquery.js"></script>
-		
-        <!-- Custom script -->
-        <script src="resources/js/primality.js"></script>
-    </body>
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="message">Message</label>
+            <div id="message-wrapper" class="col-sm-9 col-xs-8">
+              <input class="form-control" readonly="true" id="message">
+            </div>
+            <div id="button-wrapper" class="col-sm-3 col-xs-4">
+              <button id="check" type="button" class="btn btn-sexy">Check</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="resources/js/jquery.js"></script> <!-- TODO remote -->
+
+    <!-- biginteger.js -->
+    <script src='https://googledrive.com/host/0BxBH2EEMp6NOSjc1SWJzeXEzUm8'></script>
+
+    <!-- primality script -->
+    <script src="resources/js/primality.js"></script>
+  </body>
 </html>
