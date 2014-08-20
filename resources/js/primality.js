@@ -5,67 +5,28 @@
  */
 
 
-$(document).ready(function() {
-
-    // Testing if biginteger.js is properly loaded.
-    var testbigint = new BigInteger('1234567890');
-    alert(testbigint);
-
-    // Ensure only numbers are entered.
-    $("#number").keypress(function(event){
-        validateNumericKeyInput(event);
-        enter("#number", event);
-    });
-
-    $("#number").mouseup(function(event){
-        $(".panel").resize();
-    });
-
-    // Respond to 'Check' button being pressed.
-    $("#check").click(function(){
-        var value = $("#number").val();
-        if (value === "")
-            return;
-        var number = parseInt(value);
-        var factor = isPrime(number);
-        if (factor == -1)
-            $("#message").val("Number is prime.");
-        else
-            $("#message").val("Number is not prime, it is divisible by " + factor + ".");
-    });
-});
-
-
 /**
- * Algorithm to determine if a number is prime.
- * Returns -1 if the number is prime, otherwise
- * returns the lowest divisor of the number.
+ * Removes non-numeric digits from a string.
+ *
+ * @param {String} str The string from which to remove non-digits.
+ *
+ * @return {String} The string with all non-numeric digits removed.
  */
-function isPrime(n) {
-
-    // Immediately return false if number is divisible by 2 or 3.
-    if (n % 2 == 0)
-        return 2;
-    if (n % 3 == 0)
-        return 3;
-
-    var nsqrt = Math.floor(Math.sqrt(n));
-
-    // Check for factors up to the square root of the number.
-    // Only primes need be checked, and all primes > 3 are +/-1
-    // of multiples of 6.
-    for (var i = 5; i < nsqrt; i+=6) {
-        if (n % i  == 0)
-            return i;
-        if (n % (i + 2) == 0)
-            return (i + 2);
+function stripNonDigits(str) {
+    var result = '';
+    for (var i = 0; i < str.length; i++) {
+        if ('0123456789'.indexOf(str.charAt(i)) > -1)
+            result = result.concat(str.charAt(i));
     }
-    return -1;
+    return result;
 }
 
 
 /**
- * Validate that the key input is a numeral.
+ * Validates that key input is a numeric digit. Does not allow the event to trigger if the key
+ * pressed was not a numeric digit.
+ *
+ * @param {Event} event The key event that was triggered.
  */
 function validateNumericKeyInput(event) {
     var e = event || window.event;
@@ -73,21 +34,60 @@ function validateNumericKeyInput(event) {
     var ch = String.fromCharCode(charCode);
 
     // Allow backspace, delete, tab, ctrl keys.
-    if (event.keyCode === 8 || event.keyCode === 0 || event.keyCode === 127 || event.keyCode === 9 || event.ctrlKey)
+    if (event.keyCode === 8 || event.keyCode === 0 || event.keyCode === 127 || event.keyCode === 9
+            || event.ctrlKey)
         return;
 
     // Limit to just numeric digits.
-    if ("0123456789".indexOf(ch) === -1)
+    if ('0123456789'.indexOf(ch) === -1)
         e.preventDefault(e);
 }
 
 
 /**
- * Enable check occurring by pressing enter on input field with specified id.
+ * Checks if a character is a numeric digit.
+ *
+ * @param  {String} ch A single-character string.
+ *
+ * @return {Boolean} True if the character is a digit, false otherwise.
  */
-function enter(id, event) {
-    if (event.which === 13) {
-        $(id).change();
-        $("#check").click();
-    }
+function isDigit(ch) {
+    return ('0123456789'.indexOf(ch) > -1);
 }
+
+
+$(document).ready(function() {
+
+    // Ensure only numbers are entered.
+    $('#number').keypress(function(event){
+        validateNumericKeyInput(event);
+
+        // If enter was pressed, fire a click event on the 'Check' button.
+        if (event.which === 13) {
+            $(id).change();
+            $('#check').click();
+        }
+    });
+
+    // Respond to 'Check' button being pressed.
+    $('#check').click(function() {
+        var value = $('#number').val();
+
+        // If the value is empty, do nothing and return.
+        if (value === '')
+            return;
+
+        // Remove non-numeric digits from the string. This allows users to include common delimiters
+        // such as spaces or commas without affecting the result.
+        value = stripNonDigits(value);
+
+        // Convert to a BigInteger.
+        var number = new BigInteger(value);
+
+        // Check primality and print corresponding message.
+        if (number.isPrime())
+            $('#message').val('Number is prime.');
+        else
+            $('#message').val('Number is not prime.');
+    });
+});
