@@ -85,9 +85,10 @@ $(document).ready(function() {
         var number = new BigInteger(value);
 
         // Check primality and print corresponding message.
-        if (number.isPrime())
-            $('#message').val('Number is prime.');
-        else
-            $('#message').val('Number is not prime.');
+        if (number.isPrime()) {
+            $('#number').removeClass('not-prime').addClass('is-prime');
+        } else {
+            $('#number').removeClass('is-prime').addClass('not-prime');
+        }
     });
 });

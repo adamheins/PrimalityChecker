@@ -5,7 +5,7 @@
  */
 
 html {
-  text-align: center;
+  /*text-align: center;*/
 }
 
 body {
@@ -48,7 +48,9 @@ body {
 }
 
 .container {
-  /*width: 400px; */
+  box-sizing: border-box;
+  width: 400px;
+  margin: auto;
   margin-top: 20px;
 }
 
@@ -58,6 +60,10 @@ body {
   }
 }
 
-.form-control:focus {
-  border-color: #39b1a4;
+.is-prime {
+  background-color: #d6ffad;
+}
+
+.not-prime {
+  background-color: #ffadad;
 }
