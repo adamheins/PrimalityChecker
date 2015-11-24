@@ -4,10 +4,6 @@
  * @author Adam Heins
  */
 
-html {
-  /*text-align: center;*/
-}
-
 body {
   background-color: #f6f6f6;
 }
@@ -62,8 +58,18 @@ body {
 
 .is-prime {
   background-color: #d6ffad;
+  border-color: #b4ff69;
+}
+
+.is-prime:focus {
+  border-color: #b4ff69;
 }
 
 .not-prime {
   background-color: #ffadad;
+  border-color: #fc6f6f;
+}
+
+.not-prime:focus {
+  border-color: #fc6f6f;
 }
