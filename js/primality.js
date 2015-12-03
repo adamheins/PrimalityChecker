@@ -57,25 +57,27 @@ function isDigit(ch) {
 
 
 $(document).ready(function() {
+    $('#message').hide();
 
     // Ensure only numbers are entered.
-    $('#number').keypress(function(event){
-        validateNumericKeyInput(event);
+    $('#number').on('keydown', function(e){
+        validateNumericKeyInput(e);
 
         // If enter was pressed, fire a click event on the 'Check' button.
-        if (event.which === 13) {
+        if (e.which === 13) {
             $(id).change();
             $('#check').click();
         }
     });
 
     // Respond to 'Check' button being pressed.
-    $('#check').click(function() {
+    $('#check').on('click', function() {
         var value = $('#number').val();
 
         // If the value is empty, do nothing and return.
-        if (value === '')
+        if (value === '') {
             return;
+        }
 
         // Remove non-numeric digits from the string. This allows users to include common delimiters
         // such as spaces or commas without affecting the result.
@@ -85,10 +87,11 @@ $(document).ready(function() {
         var number = new BigInteger(value);
 
         // Check primality and print corresponding message.
+        $('#message').show();
         if (number.isPrime()) {
-            $('#number').removeClass('not-prime').addClass('is-prime');
+            $('#message').text('Prime');
         } else {
-            $('#number').removeClass('is-prime').addClass('not-prime');
+            $('#message').text('Not Prime');
         }
     });
 });
